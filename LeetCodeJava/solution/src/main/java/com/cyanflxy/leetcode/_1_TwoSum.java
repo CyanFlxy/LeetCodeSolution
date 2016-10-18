@@ -20,10 +20,10 @@ import java.util.Map;
  * </pre>
  * Created by XiaYuqiang on 2016/10/12.
  */
-public class TwoSum {
+public class _1_TwoSum {
 
     public static void main(String... args) {
-        int[] result = new TwoSum().twoSum(new int[]{0, 4, 3, 0}, 0);
+        int[] result = new _1_TwoSum().twoSum(new int[]{0, 4, 3, 0}, 0);
         System.out.println(Arrays.toString(result));
     }
 

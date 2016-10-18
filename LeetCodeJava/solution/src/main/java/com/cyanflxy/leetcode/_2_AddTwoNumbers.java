@@ -12,7 +12,7 @@ package com.cyanflxy.leetcode;
  * </pre>
  * Created by XiaYuqiang on 2016/10/13.
  */
-public class AddTwoNumbers {
+public class _2_AddTwoNumbers {
 
     public static class ListNode {
         int val;
@@ -43,7 +43,7 @@ public class AddTwoNumbers {
     public static void main(String... args) {
         ListNode l1 = create(5);
         ListNode l2 = create(5);
-        ListNode result = new AddTwoNumbers().addTwoNumbers(l1, l2);
+        ListNode result = new _2_AddTwoNumbers().addTwoNumbers(l1, l2);
 
         for (ListNode l = result; l != null; l = l.next) {
             System.out.print(l.val);
