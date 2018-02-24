@@ -1,5 +1,7 @@
 package com.cyanflxy.leetcode;
 
+import com.cyanflxy.leetcode.help.ListNode;
+
 /**
  * https://leetcode.com/problems/add-two-numbers/ <br>
  * <p>
@@ -13,20 +15,6 @@ package com.cyanflxy.leetcode;
  * Created by XiaYuqiang on 2016/10/13.
  */
 public class _2_AddTwoNumbers {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        ListNode(int x, ListNode next) {
-            val = x;
-            this.next = next;
-        }
-    }
 
     private static ListNode create(int... values) {
         if (values == null) {

@@ -1,5 +1,7 @@
 package com.cyanflxy.leetcode;
 
+import com.cyanflxy.leetcode.help.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,25 +32,6 @@ public class _19_Remove_Nth_Node_From_End_of_List {
 
         System.out.println(object.removeNthFromEnd(new ListNode(1,
                 new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))), 4));
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        ListNode(int x, ListNode n) {
-            val = x;
-            next = n;
-        }
-
-        @Override
-        public String toString() {
-            return val + (next != null ? "->" + next.toString() : ";");
-        }
     }
 
     // 使用两个移动节点，其间距为n，同时移动，带头的移动到尾部的时候，尾随的节点就是要删除的！ 这才是"走一遍"的精髓。
