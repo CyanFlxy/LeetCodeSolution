@@ -1,7 +1,5 @@
 package com.cyanflxy.leetcode;
 
-import java.util.Arrays;
-
 /**
  * https://leetcode.com/problems/search-insert-position/description/
  * Given a sorted array and a target value, return the index if the target is found.
@@ -46,14 +44,29 @@ public class _35_Search_Insert_Position {
         System.out.println(object.searchInsert(new int[]{1, 3, 5, 6}, 2) == 1);
         System.out.println(object.searchInsert(new int[]{1, 3, 5, 6}, 7) == 4);
         System.out.println(object.searchInsert(new int[]{1, 3, 5, 6}, 0) == 0);
+        System.out.println(object.searchInsert(new int[]{1, 3, 5, 6}, 0) == -1);
+        System.out.println(object.searchInsert(new int[]{1, 3, 5, 6, 7}, 0) == 0);
     }
 
     public int searchInsert(int[] nums, int target) {
-        int result = Arrays.binarySearch(nums, target);
-        if (result >= 0) {
-            return result;
-        } else {
-            return -result - 1;
+        if (nums == null || nums.length == 0) {
+            return 0;
         }
+
+        int start = 0;
+        int end = nums.length - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] > target) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+
+        return start;
     }
 }
