@@ -21,18 +21,15 @@ public class _62_Unique_Paths {
 
     private static void test() {
         _62_Unique_Paths object = new _62_Unique_Paths();
-        System.out.println(object.uniquePaths(51, 9));
+//        System.out.println(object.uniquePaths(51, 9));
+        System.out.println(object.uniquePaths(1, 9));
     }
 
     public int uniquePaths(int m, int n) {
+        // 交换n为较小值应该会更快些，但是Math.min/max好像不如直接值交换
         long result = 1;
-
-        for (int i = 1; i < n; i++) {
-            result *= m;
-            result /= i;
-            m++;
-        }
-
+        for (int i = 1; i < n; i++, m++)
+            result = result * m / i;
         return (int) result;
     }
 
