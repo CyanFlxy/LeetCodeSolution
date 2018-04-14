@@ -18,4 +18,18 @@ public class ListNode {
     public String toString() {
         return val + (next != null ? "->" + next.toString() : ";");
     }
+
+    public static ListNode create(int... vals) {
+        if (vals == null || vals.length == 0) {
+            return null;
+        }
+
+        ListNode result = new ListNode(0);
+        ListNode pre = result;
+        for (int i : vals) {
+            pre.next = new ListNode(i);
+            pre = pre.next;
+        }
+        return result.next;
+    }
 }
