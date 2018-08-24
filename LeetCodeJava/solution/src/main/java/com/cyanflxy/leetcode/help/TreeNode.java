@@ -1,5 +1,8 @@
 package com.cyanflxy.leetcode.help;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TreeNode {
     public int val;
     public TreeNode left;
@@ -27,43 +30,36 @@ public class TreeNode {
     }
 
     public static TreeNode create(Integer... values) {
-        if (values == null || values.length == 0) {
+        if (values == null || values.length == 0 || values[0] == null) {
             return null;
         }
-        int len = values.length;
-        TreeNode[] nodeArray = new TreeNode[len];
-        for (int i = 0; i < len; i++) {
-            if (values[i] != null) {
-                nodeArray[i] = new TreeNode(values[i]);
+
+        TreeNode head = new TreeNode(values[0]);
+        int index = 1;
+
+        List<TreeNode> nodesList = new ArrayList<>();
+        List<TreeNode> tempList = new ArrayList<>();
+        nodesList.add(head);
+
+        while (!nodesList.isEmpty()) {
+            for (TreeNode node : nodesList) {
+                if (index < values.length && values[index] != null) {
+                    node.left = new TreeNode(values[index]);
+                    tempList.add(node.left);
+                }
+                index++;
+
+                if (index < values.length && values[index] != null) {
+                    node.right = new TreeNode(values[index]);
+                    tempList.add(node.right);
+                }
+                index++;
             }
+            nodesList = tempList;
+            tempList = new ArrayList<>();
         }
 
-        int level = 0;
-        int index = 0;
-
-        outer:
-        do {
-            int currentLevelEnd = index + (1 << level);
-            int nextIndex = currentLevelEnd;
-
-            for (int i = index; i < currentLevelEnd && i < len && nodeArray[i] != null; i++) {
-                if (nextIndex >= len) {
-                    break outer;
-                }
-                nodeArray[i].left = nodeArray[nextIndex];
-
-                if (nextIndex + 1 >= len) {
-                    break outer;
-                }
-                nodeArray[i].right = nodeArray[nextIndex + 1];
-
-                nextIndex += 2;
-            }
-            index = currentLevelEnd;
-            level++;
-        } while (index < len);
-
-        return nodeArray[0];
+        return head;
     }
 
 
