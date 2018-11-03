@@ -20,19 +20,7 @@ public class TreeLinkNode {
 
     @Override
     public String toString() {
-        String cur = val + " ";
-
-        String left = "";
-        if (this.left != null) {
-            left = this.left.toString();
-        }
-
-        String right = "";
-        if (this.right != null) {
-            right = this.right.toString();
-        }
-
-        return cur + left + " " + right;
+        return String.valueOf(val);
     }
 
     public static TreeLinkNode create(Integer... values) {
