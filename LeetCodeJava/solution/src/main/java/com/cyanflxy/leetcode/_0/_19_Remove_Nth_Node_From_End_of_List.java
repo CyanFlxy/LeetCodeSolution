@@ -2,9 +2,6 @@ package com.cyanflxy.leetcode._0;
 
 import com.cyanflxy.leetcode.help.ListNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
  * Given a linked list, remove the nth node from the end of list and return its head.
@@ -37,22 +34,28 @@ public class _19_Remove_Nth_Node_From_End_of_List {
     // 使用两个移动节点，其间距为n，同时移动，带头的移动到尾部的时候，尾随的节点就是要删除的！ 这才是"走一遍"的精髓。
     public ListNode removeNthFromEnd(ListNode head, int n) {
 
-        List<ListNode> nodeList = new ArrayList<>();
-        for (ListNode node = head; node != null; node = node.next) {
-            nodeList.add(node);
+        if (head == null) {
+            return null;
         }
 
-        int index = nodeList.size() - n;
-        if (index < 0 || index >= nodeList.size()) {
-            return head;
-        } else if (index == 0) {
-            return head.next;
-        } else {
-            ListNode prev = nodeList.get(index - 1);
-            ListNode deleted = nodeList.get(index);
-            prev.next = deleted.next;
-            return head;
+        ListNode node = head;
+        int count = 0;
+        while (node != null) {
+            count++;
+            node = node.next;
         }
+
+        int index = count - n;
+        if (index == 0) {
+            return head.next;
+        }
+
+        node = head;
+        for (int i = 1; i < index; i++) {
+            node = node.next;
+        }
+        node.next = node.next.next;
+        return head;
 
     }
 }
