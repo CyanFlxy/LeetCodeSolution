@@ -37,31 +37,28 @@ public class _61_Rotate_List {
             return head;
         }
 
-        ListNode n = head;
-        int x = k;
-        while (x-- > 0 && n != null) {
-            n = n.next;
-        }
-
-        if (n == null) {
-            if (x < 0) {
-                return head;
-            } else {
-                return rotateRight(head, k % (k - x - 1));
+        ListNode node = head;
+        ListNode tail = null;
+        int count = 0;
+        while (node != null) {
+            count++;
+            if (node.next == null) {
+                tail = node;
             }
+            node = node.next;
         }
 
-        ListNode m = head;
-        while (n.next != null) {
-            n = n.next;
-            m = m.next;
+        int index = count - (k % count);
+        node = head;
+        for (int i = 1; i < index; i++) {
+            node = node.next;
         }
 
-        ListNode result = m.next;
-        m.next = null;
-        n.next = head;
+        tail.next = head;
+        head = node.next;
+        node.next = null;
 
-        return result;
+        return head;
     }
 
 }
