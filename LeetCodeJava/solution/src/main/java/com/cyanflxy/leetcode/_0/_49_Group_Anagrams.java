@@ -1,7 +1,6 @@
 package com.cyanflxy.leetcode._0;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,29 +34,32 @@ public class _49_Group_Anagrams {
     private static void test() {
         _49_Group_Anagrams object = new _49_Group_Anagrams();
         System.out.println(object.groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
-
     }
 
-    // 问题1： 可以使用质数计算字符串的hash（每个字母代表一个质数，所有质数相乘则得到一个单独的hash）
-    // 最后的结果收集可以在运行中做 - 每创建一个Array，则添加一次。
+    int[] prime = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
+
     public List<List<String>> groupAnagrams(String[] strs) {
 
-        Map<String, List<String>> map = new HashMap<>();
+        Map<Integer, List<String>> map = new HashMap<>();
+
         for (String s : strs) {
             char[] arr = s.toCharArray();
-            Arrays.sort(arr);
-            String sorted = String.valueOf(arr);
 
-            List<String> list = map.get(sorted);
+            int value = 1;
+            for (char c : arr) {
+                value *= prime[c - 'a'];
+            }
+
+            List<String> list = map.get(value);
             if (list == null) {
                 list = new ArrayList<>();
-                map.put(sorted, list);
+                map.put(value, list);
             }
             list.add(s);
         }
 
         List<List<String>> result = new ArrayList<>();
-        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+        for (Map.Entry<Integer, List<String>> entry : map.entrySet()) {
             result.add(entry.getValue());
         }
         return result;
