@@ -1,4 +1,4 @@
-package com.cyanflxy.leetcode;
+package com.cyanflxy.leetcode._0;
 
 /**
  * https://leetcode.com/problems/jump-game-ii/description/
