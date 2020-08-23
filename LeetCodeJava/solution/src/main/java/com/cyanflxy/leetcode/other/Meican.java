@@ -1,4 +1,4 @@
-package com.cyanflxy.leetcode.interview;
+package com.cyanflxy.leetcode.other;
 
 import com.cyanflxy.leetcode.help.TreeNode;
 
@@ -6,12 +6,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * meican -1
+ * meican
  *
  * @author cyanflxy
  * @since 2020/8/13
  */
-public class _4 {
+public class Meican {
 
 
     public boolean isBST(TreeNode node) {
@@ -52,7 +52,7 @@ public class _4 {
     }
 
     public static void main(String... args) {
-        int result = new _4().reverse(0x80000000);
+        int result = new Meican().reverse(0x80000000);
         System.out.println(Integer.toHexString(result));
     }
 

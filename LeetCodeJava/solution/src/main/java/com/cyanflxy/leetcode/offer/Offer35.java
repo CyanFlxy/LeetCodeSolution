@@ -1,4 +1,4 @@
-package com.cyanflxy.leetcode.interview;
+package com.cyanflxy.leetcode.offer;
 
 /**
  * https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/

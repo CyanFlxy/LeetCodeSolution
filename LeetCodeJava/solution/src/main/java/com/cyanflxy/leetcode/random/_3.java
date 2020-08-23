@@ -1,4 +1,4 @@
-package com.cyanflxy.leetcode.interview;
+package com.cyanflxy.leetcode.random;
 
 import com.cyanflxy.leetcode.help.TreeNode;
 
