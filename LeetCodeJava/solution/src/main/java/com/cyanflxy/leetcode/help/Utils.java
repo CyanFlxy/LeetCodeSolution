@@ -16,4 +16,12 @@ public class Utils {
         }
         return result;
     }
+
+    public static List<String> toList(String... val) {
+        List<String> result = new ArrayList<>();
+        for (String s : val) {
+            result.add(s);
+        }
+        return result;
+    }
 }
