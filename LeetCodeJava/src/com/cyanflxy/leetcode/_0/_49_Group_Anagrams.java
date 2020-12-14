@@ -40,28 +40,20 @@ public class _49_Group_Anagrams {
 
     public List<List<String>> groupAnagrams(String[] strs) {
 
-        Map<Integer, List<String>> map = new HashMap<>();
+        Map<Long, List<String>> map = new HashMap<>();
 
         for (String s : strs) {
             char[] arr = s.toCharArray();
 
-            int value = 1;
+            long value = 1;
             for (char c : arr) {
                 value *= prime[c - 'a'];
             }
 
-            List<String> list = map.get(value);
-            if (list == null) {
-                list = new ArrayList<>();
-                map.put(value, list);
-            }
+            List<String> list = map.computeIfAbsent(value, k -> new ArrayList<>());
             list.add(s);
         }
 
-        List<List<String>> result = new ArrayList<>();
-        for (Map.Entry<Integer, List<String>> entry : map.entrySet()) {
-            result.add(entry.getValue());
-        }
-        return result;
+        return new ArrayList<>(map.values());
     }
 }
