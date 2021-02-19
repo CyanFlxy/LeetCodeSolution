@@ -1,12 +1,9 @@
 package com.cyanflxy.leetcode._4
 
+import com.cyanflxy.leetcode.help.Node
 import java.util.*
 import kotlin.collections.ArrayList
 
-
-class Node(var `val`: Int) {
-    var children: List<Node?> = listOf()
-}
 
 
 fun levelOrder(root: Node?): List<List<Int>> {
