@@ -24,4 +24,12 @@ public class Utils {
         }
         return result;
     }
+
+    public static int[] toArray(int... val) {
+        return val;
+    }
+
+    public static String[] toArray(String... val) {
+        return val;
+    }
 }
