@@ -38,7 +38,7 @@ public class _810_Chalkboard_XOR_Game {
 
     }
 
-    public boolean xorGame(int[] nums) {
+    public boolean xorGame2(int[] nums) {
         int n = nums.length;
         if (n == 1) {
             return nums[0] == 0;
@@ -72,5 +72,13 @@ public class _810_Chalkboard_XOR_Game {
             return !isA;
         }
 
+    }
+
+    public boolean xorGame(int[] nums) {
+        int xor = 0;
+        for (int n : nums) {
+            xor ^= n;
+        }
+        return xor == 0 || nums.length % 2 == 0;
     }
 }
