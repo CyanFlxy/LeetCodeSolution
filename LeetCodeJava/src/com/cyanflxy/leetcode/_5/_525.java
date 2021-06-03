@@ -1,7 +1,6 @@
 package com.cyanflxy.leetcode._5;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 /**
  * @author cyanflxy
@@ -9,8 +8,10 @@ import java.util.Map;
  */
 public class _525 {
     public int findMaxLength(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, -1);
+        int len = nums.length + 1;
+        int[] map = new int[len * 2];
+        Arrays.fill(map, -2);
+        map[len] = -1;
 
         int zero = 0;
         int one = 0;
@@ -23,11 +24,11 @@ public class _525 {
                 one++;
             }
 
-            int diff = one - zero;
-            if (map.containsKey(diff)) {
-                max = Math.max(max, i - map.get(diff));
+            int diff = one - zero + len;
+            if (map[diff] > -2) {
+                max = Math.max(max, i - map[diff]);
             } else {
-                map.put(diff, i);
+                map[diff] = i;
             }
         }
 
