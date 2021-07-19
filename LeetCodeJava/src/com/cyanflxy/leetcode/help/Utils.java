@@ -9,10 +9,10 @@ import java.util.List;
  */
 public class Utils {
 
-    public static List<Integer> toList(int... val) {
-        List<Integer> result = new ArrayList<>();
-        for (int i : val) {
-            result.add(i);
+    public static <T> List<T> toList(T... val) {
+        List<T> result = new ArrayList<>();
+        for (T t : val) {
+            result.add(t);
         }
         return result;
     }
